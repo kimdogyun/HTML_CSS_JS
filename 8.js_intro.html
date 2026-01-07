@@ -38,6 +38,27 @@
             }
             console.log(total);
             }
+              function arrFunction(){
+                let arr = [10,"20",function test(){console.log("hello world")}]
+                arr[2]();
+            }
+            function varExample(){
+                // var는 같은 병수명에 재선언,재할당 모두 가능
+                var a = 10;
+                var a = 20;
+                console.log(a);
+            }
+            function letExample(){
+                let a = 10;
+                a = 20; //재할당 가능
+                // let a = 30; // 재선언은 불가능
+                console.log(a)
+            }
+            function constExample(){
+                const a = 10;
+                a =20; //재할당 불가능
+                console.log(a);
+            }
         
     </script>
 </head>
@@ -45,5 +66,43 @@
     <h2>js 변수와 출력</h2>
     <button onclick="console1()">console에 변수 출력하기</button>
     <button onclick="console2()">console에 배열 출력하기</button>
+    <button onclick="arrFunction()">배열안에 함수를 실행</button>
+
+    <h2>js 변수 선언 키워드(var,let,const)</h2>
+    <button onclick="varExample()">var 예제</button>
+    <button onclick="letExample()">let 예제</button>
+    <button onclick="constExample()">const 예제</button>
+
+    <h2>js를 통한 html요소 변경</h2>
+    <button onclick="changeText1()">id를 통한 변경</button>
+    <p id="change1">hello world</p>
+    <button onclick="changeText2()">class를 통한 변경</button>
+    <p class="change2">hello world</p>
+    <p class="change2">hello world</p>
+    <button onclick="changeText3()">tag를 통한 변경</button>
+    <h5>hello world</h5>
+    <h5>hello world</h5>
+    <script>
+        function changeText1(){
+            let element = document.getElementById("change1");
+            element.innerHTML = "hello java";
+        }
+        function changeText2(){
+            //   getElementsByClassName : 배열을 리턴
+           let elements = document.getElementsByClassName("change2");  
+        //    hello python
+           for(let i =0; i<elements.length;i++){
+            elements[i].innerHTML ="hello python" ;
+           }        
+        }
+        function changeText3(){  
+            // hello javascript
+            let elements = document.getElementsByTagName("h5");
+            for(let i =0;i<elements.length;i++){
+                elements[i].innerHTML ="hello javascript" ;
+
+            }
+        }
+    </script>
 </body>
 </html>
